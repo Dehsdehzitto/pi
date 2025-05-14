@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Mapa from "./components/Mapa";
 import AutenticacaoMapa from "./components/AutenticacaoMapa";
+import Geolocalizacao from "./components/Geolocalizacao";
 
 const Pagina = () => {
   return <div className={styles.pagina}>
@@ -9,6 +10,7 @@ const Pagina = () => {
       <div className={styles.buttonArea}>
         <input className={styles.input} type="text" placeholder="Digite aqui sua busca" />
         <button className={styles.button}>🔎</button>
+        <Geolocalizacao />
       </div>
     </div>
     <AutenticacaoMapa>

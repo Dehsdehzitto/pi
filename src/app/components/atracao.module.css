@@ -1,0 +1,10 @@
+.visivel {
+  width: 40vw;
+  background-color: pink;
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}

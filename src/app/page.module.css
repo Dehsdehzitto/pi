@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .card {
@@ -20,12 +21,22 @@
 
 .buttonArea {
   display: flex;
-  gap: 20px;
+}
+
+.button {
+  background-color: #e1d6e4cc;
+  color: #f0f0f0;
+  border-radius: 0px 20px 20px 0px;
+  border: 1px solid transparent;
+  padding: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
 }
 
 .input {
-  border-radius: 20px;
-  border: 1px solid transparent;
+  border-radius: 20px 0px 0px 20px;
+  border: 0px solid transparent;
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 99%, #e1d6e4cc);
   padding: 20px;
   font-size: 1.5em;
   flex-grow: 1;
