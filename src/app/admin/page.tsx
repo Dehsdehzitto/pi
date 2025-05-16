@@ -17,6 +17,7 @@ const Admin = () => {
     <AutenticacaoMapa>
       <Mapa />
     </AutenticacaoMapa>
+    
     </div>
     <div className={styles.atracao}>
       <Atracao />
