@@ -23,7 +23,7 @@ interface Propriedades {
   setMapa: (mapa: google.maps.Map) => void
 }
 
-export const AppContext = createContext<Propriedades>({} as Propriedades)
+export const AppContext = createContext<Propriedades>({localizacao: SAO_PAULO, atracoes: []} as unknown as Propriedades)
 
 const AppProviderInterno = ({children}: React.PropsWithChildren) => {
   const context = useContext(AppContext)
@@ -38,7 +38,7 @@ const AppProvider = ({children}: React.PropsWithChildren) => {
   const [mapa, setMapa] = useState<google.maps.Map>()
 
   return (
-    <AppContext.Provider value={{ mapa, setMapa, setAtracaoSelecionada, atracoes, setAtracoes, localizacao, setLocalizacao, adicionarAtracaoAtivo, setAdicionarAtracaoAtivo }}>
+    <AppContext.Provider value={{ mapa, setMapa, atracaoSelecionada, setAtracaoSelecionada, atracoes, setAtracoes, localizacao, setLocalizacao, adicionarAtracaoAtivo, setAdicionarAtracaoAtivo }}>
       <AppProviderInterno>{children}</AppProviderInterno>
     </AppContext.Provider>
   )

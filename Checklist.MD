@@ -5,16 +5,17 @@
   // Criar uma atração
   // Criar comentário
   // Criar avaliação
-* Fazer chamada aos métodos acima
+// Fazer chamada aos métodos acima
   // Instalar o axios npm install axios
   // Criar um contexto no frontend
   // Atualizar o mapa
     // Mudança de cores
     // Remover icones desnecessários
   * Botão para adicionar uma atração
-  * Listar as atrações
+  // Listar as atrações
   * Editar a atração
-    * Abrir o menu lateral para adicionar / editar atração
+    // Abrir o menu lateral para adicionar / editar atração
+    * deixar o menu pelo menos aceitavel visualmente
 * Visão do usuário normal
   * Listar
   * Adicionar comentário
