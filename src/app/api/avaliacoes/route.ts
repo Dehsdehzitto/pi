@@ -1,5 +1,6 @@
+import { adicionarAvaliacao } from "@/app/modelo/database"
 import { Avaliacao } from "@/app/modelo/modelo"
-import { NextRequest } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
 
 export const POST = async (request: NextRequest) => {
@@ -9,7 +10,7 @@ export const POST = async (request: NextRequest) => {
     usuarioId: body.usuarioId,
     atracaoId: body.atracaoId,
   }
-  // salva atração no banco de dados
-  return null
+  adicionarAvaliacao(avaliacao)
+  return NextResponse.json({ok: true})
 }
 

@@ -1,10 +1,11 @@
+import AppProvider from '../components/AppProvider'
 import Atracao from '../components/Atracao'
 import AutenticacaoMapa from '../components/AutenticacaoMapa'
 import Mapa from '../components/Mapa'
 import styles from './page.module.css'
 
 const Admin = () => {
-  return <>
+  return <AppProvider>
   <div className={styles.pagina}>
     <div className={styles.parteSuperior}>
       <div className={styles.grupoPesquisa}>
@@ -23,7 +24,7 @@ const Admin = () => {
       <Atracao />
     </div>
   </div>
-  </>
+  </AppProvider>
 }
 
 export default Admin

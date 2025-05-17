@@ -1,0 +1,19 @@
+### Criar uma nova atração
+POST http://localhost:3000/api/atracoes HTTP/1.1
+
+{
+  "nome": "Parque Nacional",
+  "descricao": "Um parque lindo com muitas trilhas.",
+  "latitude": -23.5505,
+  "longitude": -46.6333,
+  "comentarios": [],
+  "avaliacoes": []
+}
+###
+GET http://localhost:3000/api/atracoes?latitude=23.5505&longitude=46.6333
+###
+POST http://localhost:3000/api/comentarios
+###
+POST http://localhost:3000/api/avaliacoes
+###
+DELETE http://localhost:3000/api/atracoes

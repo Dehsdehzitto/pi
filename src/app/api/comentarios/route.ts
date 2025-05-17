@@ -1,6 +1,7 @@
 
+import { adicionarComentario } from "@/app/modelo/database"
 import { Comentario } from "@/app/modelo/modelo"
-import { NextRequest } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
 export const POST = async (request: NextRequest) => {
   const body = await request.json()
@@ -9,6 +10,6 @@ export const POST = async (request: NextRequest) => {
     comentario: body.comentario,
     usuarioId: body.usuarioId,
   }
-  // salva atração no banco de dados
-  return null
+  adicionarComentario(comentario)
+  return NextResponse.json({ok: true})
 }

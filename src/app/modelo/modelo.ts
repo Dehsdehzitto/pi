@@ -1,23 +1,27 @@
+import { ObjectId } from "mongodb"
+
 export interface Comentario {
-  id?: string
   usuarioId: string
   comentario: string
   atracaoId: string
 }
 
 export interface Avaliacao {
-  id?: string
   usuarioId: string
   nota: number
   atracaoId: string
 }
 
+export interface Ponto {
+  type: "Point"
+  coordinates: [number, number]
+}
+
 export interface Atracao {
-  id?: string
+  _id?: ObjectId
   nome: string
   descricao: string
-  latitude: number
-  longitude: number
+  localizacao: Ponto
   comentarios: Comentario[]
   avaliacoes: Avaliacao[]
 }
