@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 export const POST = async (request: NextRequest) => {
   const body = await request.json()
-  const comentario: Comentario = {
+  const comentario = {
     atracaoId: body.atracaoId,
     comentario: body.comentario,
     usuarioId: body.usuarioId,

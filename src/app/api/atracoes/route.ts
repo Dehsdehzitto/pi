@@ -9,15 +9,12 @@ export const POST = async (request: NextRequest) => {
     _id: body._id,
     nome: body.nome,
     descricao: body.descricao,
-    localizacao: {
-      type: "Point",
-      coordinates: [body.longitude, body.latitude]
-    },
+    localizacao: body.localizacao,
     comentarios: [],
     avaliacoes: []
   }
-  criarAtracao(atracao)
-  return NextResponse.json({ok: true})
+  const atracaoCriada = await criarAtracao(atracao)
+  return NextResponse.json(atracaoCriada)
 }
 
 export const GET = async (request: NextRequest) => {

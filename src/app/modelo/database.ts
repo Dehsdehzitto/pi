@@ -38,11 +38,19 @@ export const deletarAtracao = async (id: string) => {
 
 export const criarAtracao = async (atracao: Atracao) => {
   const banco = await bancoAtracoes()
-  const options = { upsert: true }
-  const filtro = { _id: atracao._id }
-  const update = { $set: atracao }
-  const resultado = await banco.updateOne(filtro, update, options)
-  return resultado
+  if(atracao._id) {
+    const resultado = await banco.updateOne({ _id: new ObjectId(atracao._id) }, 
+      { $set: { localizacao: atracao.localizacao, nome: atracao.nome, descricao: atracao.descricao} })
+    const id = resultado.upsertedId
+    if(id) {
+      atracao._id = id
+    }
+    return atracao
+  } else {
+    const resultado = await banco.insertOne(atracao)
+    atracao._id = resultado.insertedId
+    return atracao
+  }
 }
 
 export const adicionarComentario = async (comentario: Comentario) => {

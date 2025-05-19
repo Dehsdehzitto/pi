@@ -1,19 +1,13 @@
 import AppProvider from '../components/AppProvider'
-import Atracao from '../components/Atracao'
+import AtracaoComponente from '../components/AtracaoComponente'
 import AutenticacaoMapa from '../components/AutenticacaoMapa'
+import CriarAtracao from '../components/CriarAtracao'
 import Mapa from '../components/Mapa'
 import styles from './page.module.css'
 
 const Admin = () => {
   return <AppProvider>
   <div className={styles.pagina}>
-    <div className={styles.parteSuperior}>
-      <div className={styles.grupoPesquisa}>
-        <input className={styles.barraDePesquisa} placeholder='Desdehzitto'/>
-        <button className={styles.botaoDePesquisa}>Pesquisar?</button>
-      </div>
-      <img className={styles.iconeAvatar}></img>
-    </div>
     <div className={styles.mapa}>
     <AutenticacaoMapa>
       <Mapa />
@@ -21,8 +15,9 @@ const Admin = () => {
     
     </div>
     <div className={styles.atracao}>
-      <Atracao />
+      <AtracaoComponente />
     </div>
+    <CriarAtracao /> 
   </div>
   </AppProvider>
 }

@@ -3,13 +3,13 @@ import { ObjectId } from "mongodb"
 export interface Comentario {
   usuarioId: string
   comentario: string
-  atracaoId: string
+  atracaoId: ObjectId
 }
 
 export interface Avaliacao {
   usuarioId: string
   nota: number
-  atracaoId: string
+  atracaoId: ObjectId
 }
 
 export interface Ponto {

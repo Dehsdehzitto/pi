@@ -12,7 +12,7 @@ const SAO_PAULO = {lat: -23.5489, lng: -46.6389};
 
 interface Propriedades {
   atracaoSelecionada?: Atracao
-  setAtracaoSelecionada: (atracao: Atracao) => void
+  setAtracaoSelecionada: (atracao?: Atracao) => void
   atracoes: Atracao[]
   setAtracoes: (atracoes: Atracao[]) => void
   localizacao: Coordenadas
@@ -21,6 +21,8 @@ interface Propriedades {
   setAdicionarAtracaoAtivo : (adicionarAtracaoAtivo : boolean) => void
   mapa?: google.maps.Map
   setMapa: (mapa: google.maps.Map) => void
+  usuario: string
+  setUsuario: (usuario: string) => void
 }
 
 export const AppContext = createContext<Propriedades>({localizacao: SAO_PAULO, atracoes: []} as unknown as Propriedades)
@@ -36,12 +38,28 @@ const AppProvider = ({children}: React.PropsWithChildren) => {
   const [localizacao, setLocalizacao] = useState<Coordenadas>(SAO_PAULO)
   const [adicionarAtracaoAtivo, setAdicionarAtracaoAtivo] = useState<boolean>(false)
   const [mapa, setMapa] = useState<google.maps.Map>()
+  const [usuario, setUsuario] = useState<string>("")
 
   return (
-    <AppContext.Provider value={{ mapa, setMapa, atracaoSelecionada, setAtracaoSelecionada, atracoes, setAtracoes, localizacao, setLocalizacao, adicionarAtracaoAtivo, setAdicionarAtracaoAtivo }}>
+    <AppContext.Provider
+      value={{
+        mapa,
+        setMapa,
+        atracaoSelecionada,
+        setAtracaoSelecionada,
+        atracoes,
+        setAtracoes,
+        localizacao,
+        setLocalizacao,
+        adicionarAtracaoAtivo,
+        setAdicionarAtracaoAtivo,
+        usuario,
+        setUsuario
+      }}
+    >
       <AppProviderInterno>{children}</AppProviderInterno>
     </AppContext.Provider>
-  )
+  );
 }
 
 export default AppProvider
