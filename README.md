@@ -28,3 +28,5 @@ basta rodar o seguinte comando
 ### Rotas da aplicação
 para criar novos pontos, a url http://localhost:3000/admin é responsável pela administração dos pontos no mapa
 a visão do usuário comum, com adição de comentários e/ou avaliações fica na rota http://localhost:3000
+
+### Vídeo e revisitação do projeto estão na raiz
