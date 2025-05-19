@@ -11,9 +11,15 @@ import AtracaoAvaliacao from "./components/AtracaoAvaliacao";
 const PegaUsuario = () => {
   const { usuario, setUsuario} = useContext(AppContext)
   const [nome, setNome] = useState("")
+
+  const salvarUsuario = () => {
+    localStorage.setItem("nome", nome)
+    setUsuario(nome)
+  }
+
   return usuario ? null : <div className={styles.pagina}>
   <input placeholder="digite o nome do usuário" onChange={e => setNome(e.target.value)} />
-  <button onClick={() => setUsuario(nome)}>Confirmar</button>
+  <button onClick={salvarUsuario}>Confirmar</button>
 </div>
 }
 

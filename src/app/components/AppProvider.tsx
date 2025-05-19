@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useState, useContext } from 'react'
+import { createContext, useState, useContext, useEffect } from 'react'
 import { Atracao } from "../modelo/modelo";
 
 interface Coordenadas {
@@ -32,14 +32,21 @@ const AppProviderInterno = ({children}: React.PropsWithChildren) => {
   return context.localizacao ? <>{children}</> : <></> 
 }
 
+
 const AppProvider = ({children}: React.PropsWithChildren) => {
   const [atracaoSelecionada, setAtracaoSelecionada] = useState<Atracao | undefined>(undefined)
   const [atracoes, setAtracoes] = useState<Atracao[]>([])
   const [localizacao, setLocalizacao] = useState<Coordenadas>(SAO_PAULO)
   const [adicionarAtracaoAtivo, setAdicionarAtracaoAtivo] = useState<boolean>(false)
   const [mapa, setMapa] = useState<google.maps.Map>()
-  const [usuario, setUsuario] = useState<string>("")
+  const [usuario, setUsuario] = useState<string>('')
 
+  useEffect(() => {
+    if(typeof window !== "undefined") {
+      const nome = window.localStorage.getItem('nome') || ''
+      setUsuario(nome)
+    }
+  }, [])
   return (
     <AppContext.Provider
       value={{

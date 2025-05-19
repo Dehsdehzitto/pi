@@ -30,19 +30,26 @@ const AtracaoAvaliacao = () => {
       usuarioId: usuario
     }
     await axios.post("/api/avaliacoes", dados)
-    atracaoSelecionada?.avaliacoes.push({ nota, usuarioId: usuario, atracaoId: atracaoSelecionada?._id! })
+    if(atracaoSelecionada) {
+      const avaliacoes = atracaoSelecionada?.avaliacoes.filter(avaliacao => avaliacao.usuarioId !== usuario) || []
+      avaliacoes.push({ nota, usuarioId: usuario, atracaoId: atracaoSelecionada?._id! })
+      atracaoSelecionada.avaliacoes = avaliacoes
+    }
   }
 
   const enviarComentario = async () => {
-    console.log("Comentario")
     const dados = {
       atracaoId: atracaoSelecionada?._id!,
       comentario,
       usuarioId: usuario
     }
     await axios.post("/api/comentarios", dados)
-    atracaoSelecionada?.comentarios.push({ comentario, usuarioId: usuario, atracaoId: atracaoSelecionada?._id! })
-    setAtracaoSelecionada(undefined)
+    if(atracaoSelecionada) {
+      const comentarios = atracaoSelecionada?.comentarios.filter(comentario => comentario.usuarioId !== usuario) || []
+      comentarios.push({ comentario, usuarioId: usuario, atracaoId: atracaoSelecionada?._id! })
+      atracaoSelecionada.comentarios = comentarios
+      setAtracaoSelecionada(undefined)
+    }
   }
 
   const getMediaAvaliacoes = () => {
